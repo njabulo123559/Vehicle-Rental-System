@@ -1,0 +1,31 @@
+server:
+port: 7000
+
+eureka:
+client:
+serviceUrl:
+defaultZone: http://eureka-service-hostname:8761/eureka/
+
+
+spring:
+  application:
+  name: gateway-service
+
+  cloud:
+    gateway:
+      routes:
+        - id: users
+          uri: lb://users-service
+          predicates:
+            - Path=/users/**
+        - id: reservations
+          uri: lb://reservations-service
+          predicates:
+            - Path=/reservations/**
+        - id: cars
+          uri: lb://cars-service
+          predicates:
+            - Path=/cars/**
+
+
+
