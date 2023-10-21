@@ -1,9 +1,0 @@
-server:
-  port: 8761 # Default port for Eureka server
-
-eureka:
-  client:
-    register-with-eureka: false
-    fetch-registry: false
-  server:
-    enable-self-preservation: false
