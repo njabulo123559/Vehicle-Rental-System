@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PROTOGEn Login</title>
+    <style>
+        body {
+          font-family: sans-serif;
+          margin: 0;
+          padding: 0;
+        }
+
+        .container {
+          width: 300px;
+          margin: 0 auto;
+          padding: 20px;
+          border: 1px solid #ccc;
+        }
+
+        h1 {
+          text-align: center;
+        }
+
+        form {
+          margin-top: 20px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+          width: 100%;
+          height: 35px;
+          padding: 5px;
+          margin-bottom: 10px;
+          border: 1px solid #ccc;
+        }
+
+        button {
+          width: 100%;
+          padding: 10px;
+          background-color: #000;
+          color: #fff;
+          border: 1px solid #000;
+        }
+
+        button:hover {
+          cursor: pointer;
+          opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+<h1>Welcome to the Vehicle Rental System</h1>
+
+<div class="container">
+    <h2>Login</h2>
+
+    <form action="/login" method="post">
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <button type="submit">Login</button>
+    </form>
+</div>
+</body>
+</html>
