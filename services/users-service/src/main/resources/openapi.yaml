@@ -1,0 +1,143 @@
+openapi: 3.0.3
+info:
+  title: Users Service API
+  description: API for managing vehicles, and users in a rental system
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:9102
+
+
+paths:
+  /api/users:
+    post:
+      summary: Add Users
+      operationId: addUser
+      description: Add one or more users to the system.
+      requestBody:
+        description: List of user requests
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/UserRequest'
+      responses:
+        '201':
+          description: Users added successfully
+        '400':
+          description: Invalid request data
+
+    get:
+      summary: Get All Users
+      operationId: getAllUsers
+      description: Get a list of all users in the system.
+      responses:
+        '200':
+          description: List of user details
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserResponse'
+
+  /api/users/{id}:
+    get:
+      summary: Get User by ID
+      operationId: getUserById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID of the user
+      responses:
+        '200':
+          description: User details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+        '404':
+          description: User not found
+
+    delete:
+      summary: Remove User by ID
+      operationId: removeUser
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID of the user
+      responses:
+        '200':
+          description: User removed successfully
+        '404':
+          description: User not found
+
+    put:
+      summary: Update User
+      operationId: updateUser
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID of the user to update
+      requestBody:
+        description: User request
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRequest'
+      responses:
+        '200':
+          description: User updated successfully
+        '400':
+          description: Invalid request data
+
+
+
+
+components:
+  schemas:
+    UserRequest:
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        dateOfBirth:
+          type: string
+        rsaId:
+          type: string
+      required:
+        - firstName
+        - lastName
+        - dateOfBirth
+        - rsaId
+
+    UserResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        firstName:
+          type: string
+        lastName:
+          type: string
+        dateOfBirth:
+          type: string
+        rsaId:
+          type: string
+
+
+

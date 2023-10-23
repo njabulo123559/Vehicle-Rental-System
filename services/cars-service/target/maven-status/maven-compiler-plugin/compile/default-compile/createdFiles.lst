@@ -1,0 +1,14 @@
+za\co\protogen\dto\CarRequest.class
+za\co\protogen\dto\CarRequest$CarRequestBuilder.class
+za\co\protogen\repository\CarsRepository.class
+za\co\protogen\controller\CarController.class
+za\co\protogen\dto\CarResponse$CarResponseBuilder.class
+za\co\protogen\CarsServiceApplication.class
+za\co\protogen\config\SwaggerConfig.class
+za\co\protogen\model\Car.class
+za\co\protogen\dto\CarResponse.class
+za\co\protogen\model\FuelType.class
+za\co\protogen\model\TransmissionType.class
+za\co\protogen\model\Car$CarBuilder.class
+za\co\protogen\service\CarNotFoundException.class
+za\co\protogen\service\CarService.class

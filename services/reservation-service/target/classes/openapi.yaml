@@ -1,0 +1,155 @@
+openapi: 3.0.3
+info:
+  title: Reservations Service API
+  description: API for managing vehicles, and users in a rental system
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:9103
+
+
+paths:
+  /api/reservations:
+    post:
+      summary: Add Reservations
+      operationId: addReservation
+      description: Add one or more reservations to the system.
+      requestBody:
+        description: List of reservation requests
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReservationRequest'
+      responses:
+        '201':
+          description: Reservations created successfully
+        '400':
+          description: Invalid request data
+
+    get:
+      summary: Get All Reservations
+      operationId: getAllReservations
+      description: Get a list of all reservations in the system.
+      responses:
+        '200':
+          description: List of reservation details
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReservationResponse'
+
+  /api/reservations/{id}:
+    get:
+      summary: Get Reservation by ID
+      operationId: getReservationById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID of the reservation
+      responses:
+        '200':
+          description: Reservation details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReservationResponse'
+        '404':
+          description: Reservation not found
+
+    delete:
+      summary: Remove Reservation by ID
+      operationId: removeReservation
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID of the reservation
+      responses:
+        '200':
+          description: Reservation removed successfully
+        '404':
+          description: Reservation not found
+
+    put:
+      summary: Update Reservation
+      operationId: updateReservation
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID of the reservation to update
+      requestBody:
+        description: Reservation request
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReservationRequest'
+      responses:
+        '200':
+          description: Reservation updated successfully
+        '400':
+          description: Invalid request data
+
+
+
+components:
+  schemas:
+    ReservationRequest:
+      type: object
+      properties:
+        userId:
+          type: integer
+        carId:
+          type: integer
+        fromDate:
+          type: string
+          format: date
+        toDate:
+          type: string
+          format: date
+        pickUpLocation:
+          type: string
+        dropoffLocation:
+          type: string
+      required:
+        - userId
+        - carId
+        - fromDate
+        - toDate
+        - pickUpLocation
+        - dropOffLocation
+
+    ReservationResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        userId:
+          type: integer
+        carId:
+          type: integer
+        fromDate:
+          type: string
+          format: date
+        toDate:
+          type: string
+          format: date
+        pickUpLocation:
+          type: string
+        dropoffLocation:
+          type: string
+
+

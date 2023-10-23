@@ -1,0 +1,317 @@
+{
+	"info": {
+		"_postman_id": "36406635-2bf0-4f37-a2a0-515a62bd8924",
+		"name": "cars-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23133128"
+	},
+	"item": [
+		{
+			"name": "Create Car",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n    \"make\": \"Toyota\",\r\n    \"model\": \"Corolla\",\r\n    \"year\": 2020,\r\n    \"color\": \"Blue\",\r\n    \"engine\": \"1.8L\",\r\n    \"transmission\": \"MANUAL\",\r\n    \"fuelType\": \"DIESEL\",\r\n    \"mileage\": 10000,\r\n    \"price\": 25000,\r\n    \"ownerId\": 123,\r\n    \"features\": [\r\n        \"Air Conditioning\",\r\n        \"Power Steering\",\r\n        \"Cruise Control\"\r\n        ]\r\n    },\r\n\r\n    {\r\n    \"make\": \"Honda\",\r\n    \"model\": \"Civic\",\r\n    \"year\":2020,\r\n    \"color\": \"Red\",\r\n    \"engine\": \"1.5L\",\r\n    \"transmission\": \"CVT\",\r\n    \"fuelType\": \"GASOLINE\",\r\n    \"mileage\": 15000,\r\n    \"price\": 22000,\r\n    \"ownerId\": 456,\r\n    \"features\" : [\r\n        \"Air Conditioning\",\r\n        \"Electric Motor\"\r\n\r\n    ]\r\n    \r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7000/api/cars",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"cars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cars",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7000/api/cars",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"cars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Car",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7000/api/cars/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"cars",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCarById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7000/api/cars/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"cars",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCarsByMake",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7000/api/cars/by-make?make=Toyota",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"cars",
+						"by-make"
+					],
+					"query": [
+						{
+							"key": "make",
+							"value": "Toyota"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCarsByYear",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7000/api/cars/by-year?year=2020",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"cars",
+						"by-year"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2020"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCarByColor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7000/api/cars/by-color?color=Red",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"cars",
+						"by-color"
+					],
+					"query": [
+						{
+							"key": "color",
+							"value": "Red"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Car",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"make\": \"Toyota\",\r\n    \"model\": \"Corolla\",\r\n    \"year\": 2023,\r\n    \"color\": \"Blue\",\r\n    \"engine\": \"1.8L\",\r\n    \"transmission\": \"MANUAL\",\r\n    \"fuelType\": \"DIESEL\",\r\n    \"mileage\": 10000,\r\n    \"price\": 25000,\r\n    \"ownerId\": 123,\r\n    \"features\": [\r\n        \"Air Conditioning\",\r\n        \"Power Steering\",\r\n        \"Cruise Control\"\r\n        ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7000/api/cars/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"cars",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculateAverageMileage",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7000/api/cars/average-mileage",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"cars",
+						"average-mileage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findCheapestCar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7000/api/cars/cheapest-car",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"cars",
+						"cheapest-car"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findMostExpensiveCar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7000/api/cars/most-expensive-car",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"cars",
+						"most-expensive-car"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findNewestCar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7000/api/cars/newest-car",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"cars",
+						"newest-car"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "oldest-car",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7000/api/cars/oldest-car",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"cars",
+						"oldest-car"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
